@@ -7,7 +7,6 @@
     - fonts
     - install
 - name: Download jetbrains
-  when: jetbrains_exists is failed
   ansible.builtin.unarchive:
     src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
     dest: "{{ lookup('env', 'HOME') }}/.fonts/"
@@ -17,6 +16,7 @@
     - fonts
     - install
 - name: Install kitty terminal
+  become: true
   shell: curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
   tags:
     - dotfiles

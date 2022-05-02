@@ -1,6 +1,10 @@
-- name: Install a .deb package from the internet
+- name: Install Neo Vim
+  become: true
   apt:
     deb: https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.deb
+  tags:
+    - install
+    - neovim
 
 - name: Clone Nvchad
   ansible.builtin.git:
