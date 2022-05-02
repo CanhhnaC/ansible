@@ -6,13 +6,6 @@
     - dotfiles
     - fonts
     - install
-- name: Jetbrains exists
-  shell: "ls {{ lookup('env', 'HOME') }}/.fonts/JetBrains*Nerd*Font*Complete*"
-  register: jetbrains_exists
-  tags:
-    - dotfiles
-    - fonts
-    - install
 - name: Download jetbrains
   when: jetbrains_exists is failed
   ansible.builtin.unarchive:
