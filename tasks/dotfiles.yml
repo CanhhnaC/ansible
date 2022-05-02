@@ -23,3 +23,9 @@
     - install
     - dotfiles
     - stow
+- name: Desktop integration kitty
+  shell: cd $HOME/.dotfiles && ./kitty-icon
+  tags:
+    - dotfiles
+    - fonts
+    - install
