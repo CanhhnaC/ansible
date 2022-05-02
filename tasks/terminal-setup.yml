@@ -1,0 +1,31 @@
+- name: ensure fonts directory
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.fonts"
+    state: directory
+  tags:
+    - dotfiles
+    - fonts
+    - install
+- name: Jetbrains exists
+  shell: "ls {{ lookup('env', 'HOME') }}/.fonts/JetBrains*Nerd*Font*Complete*"
+  register: jetbrains_exists
+  tags:
+    - dotfiles
+    - fonts
+    - install
+- name: Download jetbrains
+  when: jetbrains_exists is failed
+  ansible.builtin.unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+    dest: "{{ lookup('env', 'HOME') }}/.fonts/"
+    remote_src: yes
+  tags:
+    - dotfiles
+    - fonts
+    - install
+- name: Install kitty terminal
+  shell: curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+  tags:
+    - dotfiles
+    - fonts
+    - install
