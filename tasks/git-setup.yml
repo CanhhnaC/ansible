@@ -1,12 +1,12 @@
 - name: Git personal setup email
-  git_config:
+  community.general.git_config:
     name: user.email
     scope: global
     value: "nguyentrancanh81@gmail.com"
   tags:
   - git-personal
 - name: Git personal setup name
-  git_config:
+  community.general.git_config:
     name: user.name
     scope: global
     value: "Canh Nguyen"

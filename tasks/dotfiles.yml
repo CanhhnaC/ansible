@@ -24,6 +24,7 @@
     - dotfiles
     - stow
 - name: Desktop integration kitty
+  become: true
   shell: cd $HOME/.dotfiles && ./kitty-icon
   tags:
     - dotfiles

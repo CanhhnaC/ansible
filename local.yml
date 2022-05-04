@@ -16,7 +16,7 @@
   tasks:
     - include: tasks/ssh.yml
     - include: tasks/git-setup.yml
-    # - include: tasks/core-setup.yml
+    - include: tasks/core-setup.yml
     - include: tasks/zsh-setup.yml
     - include: tasks/nvim-setup.yml
     - include: tasks/terminal-setup.yml
